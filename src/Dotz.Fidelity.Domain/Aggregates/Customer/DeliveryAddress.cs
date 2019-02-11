@@ -1,8 +1,7 @@
-﻿namespace Dotz.Fidelity.Domain.Aggregates
+﻿namespace Dotz.Fidelity.Domain.Aggregates.Customer
 {
     public class DeliveryAddress
     {
-        //Entidade bem básica, nao queria complicar com estados/cidade etc.
         public DeliveryAddress(Customer customer, int zipCode, string street, bool main)
         {
             Street = street;

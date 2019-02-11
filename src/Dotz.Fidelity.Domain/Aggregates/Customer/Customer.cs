@@ -1,31 +1,33 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Dotz.Fidelity.Domain.Aggregates
+namespace Dotz.Fidelity.Domain.Aggregates.Customer
 {
     public class Customer
     {
-        public Customer(int id, int cpf, string name, string email, string password, DateTime bornDate)
-            :this(cpf, name, email, password, bornDate)
+        public Customer(int id, int cpf, string name, string email, DateTime bornDate, byte[] passwordHash, byte[] passwordSalt)
+            :this(cpf, name, email, bornDate, passwordHash, passwordSalt)
         {
             Id = id;
         }
 
-        public Customer(int cpf, string name, string email, string password, DateTime bornDate)
+        public Customer(int cpf, string name, string email, DateTime bornDate, byte[] passwordHash, byte[] passwordSalt)
         {
-            BornDate = bornDate;
+            BirthDate = bornDate;
+            PasswordHash = passwordHash;
+            PasswordSalt = passwordSalt;
             Cpf = cpf;
             Name = name;
             Email = email;
-            Password = password;
         }
 
         public int Id { get; private set; }
-        public DateTime BornDate { get; }
+        public DateTime BirthDate { get; }
         public int Cpf { get; }
         public string Name { get; }
         public string Email { get; }
-        public string Password { get; }
+        public byte[] PasswordHash { get; set; }
+        public byte[] PasswordSalt { get; set; }
 
         public IList<DeliveryAddress> Addresses { get; }
 

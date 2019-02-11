@@ -1,11 +1,16 @@
 ﻿using Dotz.Fidelity.Application.Command.Responses;
+using Dotz.Fidelity.CrossCutting;
 using MediatR;
 using System;
 
 namespace Dotz.Fidelity.Application.Command.Commands
 {
-    public class RegisterCustomerCommand: IRequest<RegisterCustomerResponse>
+    public class RegisterCustomerCommand: IRequest<Result<RegisterCustomerResponse>>
     {
+        public RegisterCustomerCommand()
+        {
+        }
+
         public RegisterCustomerCommand(int cpf, string name, string email, string password, DateTime bornDate)
         {
             Cpf = cpf;
@@ -15,10 +20,10 @@ namespace Dotz.Fidelity.Application.Command.Commands
             BornDate = bornDate;
         }
 
-        public int Cpf { get; }
-        public string Name { get; }
-        public string Email { get; }
-        public string Password { get; }
-        public DateTime BornDate { get; }
+        public int Cpf { get; set; }
+        public string Name { get; set; }
+        public string Email { get; set; }
+        public string Password { get; set; }
+        public DateTime BornDate { get; set; }
     }
 }

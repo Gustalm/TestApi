@@ -6,8 +6,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="MediatR" Version="6.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Dotz.Fidelity.Application.Command\Dotz.Fidelity.Application.Command.csproj" />
+    <ProjectReference Include="..\Dotz.Fidelity.CrossCutting\Dotz.Fidelity.CrossCutting.csproj" />
+    <ProjectReference Include="..\Dotz.Fidelity.IoC\Dotz.Fidelity.IoC.csproj" />
   </ItemGroup>
 
 </Project>

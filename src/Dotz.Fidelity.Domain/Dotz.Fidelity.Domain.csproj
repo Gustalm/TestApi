@@ -4,4 +4,8 @@
     <TargetFramework>netcoreapp2.2</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Dotz.Fidelity.CrossCutting\Dotz.Fidelity.CrossCutting.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -34,4 +34,29 @@ namespace Dotz.Fidelity.CrossCutting
 
         public static Result Fail(IEnumerable<string> messages) => new Result(messages);
     }
+    public class Result<TValue> : Result
+    {
+        private Result(string messages)
+            : base(messages)
+        {
+        }
+
+        private Result(IEnumerable<string> messages)
+            : base(messages)
+        {
+        }
+
+        public Result(TValue value)
+        {
+            Value = value;
+        }
+
+        public TValue Value { get; }
+
+        public static Result<TValue> Ok(TValue value) => new Result<TValue>(value);
+
+        new public static Result<TValue> Fail(string messsage) => new Result<TValue>(messsage);
+
+        new public static Result<TValue> Fail(IEnumerable<string> messages) => new Result<TValue>(messages);
+    }
 }
